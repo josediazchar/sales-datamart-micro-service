@@ -1,0 +1,29 @@
+# ---------------------
+#  docker-compose.yaml
+# ---------------------
+
+# Variables can be changeed in .env file
+version: '3.3'
+services:
+  psql:
+    image: postgres:12.14
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_PASSWORD=hscKjq3dXgXofJzDz-W8q1DbU8MmF2vzAL9WiVdb2HE
+      - TZ=America/Bogota
+
+  pgadmin:
+    image: dpage/pgadmin4:latest
+    ports:
+      - "8080:80"
+    depends_on:
+      - psql
+    environment:
+      PGADMIN_DEFAULT_EMAIL: josediazchar@gmail.com
+      PGADMIN_DEFAULT_PASSWORD: admin
+    volumes:
+      - pgadmin_data:/var/lib/pgadmin
+
+volumes:
+  pgadmin_data:
