@@ -55,3 +55,21 @@ class SalesByStore(SQLModel):
 
 class SalesByStores(SQLModel):
     data: list[SalesByStore]
+
+
+class TotalAndAvegareSalesByEmployee(SQLModel):
+    KeyEmployee: str
+    TotalSales: float
+    AverageSales: float
+
+
+class TotalAndAvegareSalesByStore(SQLModel):
+    KeyStore: str
+    TotalSales: float
+    AverageSales: float
+
+
+class TotalAndAvegareSalesByProduct(SQLModel):
+    KeyProduct: str
+    TotalSales: float
+    AverageSales: float
