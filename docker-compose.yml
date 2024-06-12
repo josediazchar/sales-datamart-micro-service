@@ -5,6 +5,20 @@
 # Variables can be changeed in .env file
 version: '3.3'
 services:
+  api:
+      build: .
+      container_name: celes_app
+      ports:
+        - "8000:8000"
+      depends_on:
+        - psql
+      env_file:
+      - .env
+      environment:
+      - POSTGRES_SERVER=psql
+      volumes:
+        - .:/app
+
   psql:
     image: postgres:12.14
     ports:
