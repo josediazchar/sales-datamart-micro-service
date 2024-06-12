@@ -9,9 +9,9 @@ from .total_and_avegare_sales_by_product import total_and_avegare_sales_by_produ
 sales_router = APIRouter()
 
 sales_router.add_api_route('/employees', methods=['GET'], endpoint=sales_by_employee)
-sales_router.add_api_route('/employees/{KeyEmployee}', methods=['GET'], endpoint=total_and_avegare_sales_by_employee)
+sales_router.add_api_route('/employees/{key_employee}', methods=['GET'], endpoint=total_and_avegare_sales_by_employee)
 sales_router.add_api_route('/products', methods=['GET'], endpoint=sales_by_product)
-sales_router.add_api_route('/products/{KeyProduct}', methods=['GET'], endpoint=total_and_avegare_sales_by_product)
+sales_router.add_api_route('/products/{key_product}', methods=['GET'], endpoint=total_and_avegare_sales_by_product)
 sales_router.add_api_route('/stores', methods=['GET'], endpoint=sales_by_store)
-sales_router.add_api_route('/stores/{KeyStore}', methods=['GET'], endpoint=total_and_avegare_sales_by_store)
+sales_router.add_api_route('/stores/{key_store}', methods=['GET'], endpoint=total_and_avegare_sales_by_store)
 
