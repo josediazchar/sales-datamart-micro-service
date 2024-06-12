@@ -7,3 +7,5 @@ from .sales import (
     TotalAndAvegareSalesByStore,
     TotalAndAvegareSalesByProduct
 )
+from .authentication import Token
+from .user import User, UserCreate

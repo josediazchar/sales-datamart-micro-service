@@ -8,12 +8,12 @@ from pydantic_settings import BaseSettings, SettingsConfigDict
 
 
 class Settings(BaseSettings):
+    """
+    """
 
-    model_config = SettingsConfigDict(
-        env_file=".env", env_ignore_empty=True, extra="ignore"
-    )
+    SECRET_KEY: str
+
     PROJECT_NAME: str = 'CELES Sales datamart'
-
     API_V1_STR: str = "/api/v1"
 
     POSTGRES_SERVER: str
@@ -21,6 +21,14 @@ class Settings(BaseSettings):
     POSTGRES_USER: str
     POSTGRES_PASSWORD: str
     POSTGRES_DB: str = ""
+
+    FIREBASE_APIKEY: str
+    FIREBASE_AUTHDOMAIN: str
+    FIREBASE_PROJECTID: str
+    FIREBASE_STORAGEBUCKET: str
+    FIREBASE_MESSAGINGSENDERID: str
+    FIREBASE_APPID: str
+    FIREBASE_CREDENTIALS_PATH: str
 
 
     @computed_field  # type: ignore[misc]
@@ -34,6 +42,9 @@ class Settings(BaseSettings):
             port=self.POSTGRES_PORT,
             path=self.POSTGRES_DB,
         )
-
+    
+    model_config = SettingsConfigDict(
+        env_file=".env", env_ignore_empty=True, extra="ignore"
+    )
 
 settings = Settings()  # type: ignore
